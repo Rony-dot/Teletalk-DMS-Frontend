@@ -5,12 +5,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { EmployeesComponent } from './components/employees/employees.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
-import {HttpClientModule} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import { EmployeeDetailsComponent } from './components/employee-details/employee-details.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HeaderComponent } from './components/header/header.component';
 import {Ng2SearchPipeModule} from "ng2-search-filter";
 import { HomeComponent } from './components/home/home.component';
+import { LoginComponent } from './components/login/login.component';
+import {AuthInterceptorService} from "./services/auth-interceptor.service";
+import { DemoComponent } from './components/demo/demo.component';
 
 
 @NgModule({
@@ -20,6 +23,8 @@ import { HomeComponent } from './components/home/home.component';
     EmployeeDetailsComponent,
     HeaderComponent,
     HomeComponent,
+    LoginComponent,
+    DemoComponent,
   ],
   imports: [
     BrowserModule,
@@ -32,6 +37,11 @@ import { HomeComponent } from './components/home/home.component';
   ],
   providers: [
     HttpClientModule,
+    {
+      provide : HTTP_INTERCEPTORS,
+      useClass : AuthInterceptorService,
+      multi : true
+    }
   ],
   bootstrap: [AppComponent]
 })

@@ -14,6 +14,7 @@ import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import {AuthInterceptorService} from "./services/auth-interceptor.service";
 import { DemoComponent } from './components/demo/demo.component';
+import { CustomerComponent } from './components/customer/customer.component';
 
 
 @NgModule({
@@ -25,6 +26,7 @@ import { DemoComponent } from './components/demo/demo.component';
     HomeComponent,
     LoginComponent,
     DemoComponent,
+    CustomerComponent,
   ],
   imports: [
     BrowserModule,

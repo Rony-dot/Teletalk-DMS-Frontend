@@ -7,10 +7,13 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <li class="navy-item">
+      <li class="navy-item" *ngIf="visitingUser.roles?.includes('ADMIN')">
         <a class="nav-link active" aria-current="page" routerLink="/employees">Employees</a>
       </li>
-      <li class="navy-item">
+      <li class="navy-item" *ngIf="visitingUser.roles?.includes('ADMIN')">
+        <a class="nav-link active" aria-current="page" routerLink="/customers">Customers</a>
+      </li>
+      <li class="navy-item" >
         <a class="nav-link active" aria-current="page" routerLink="/demo">Demo</a>
       </li>
     </ul>
@@ -26,6 +29,9 @@
 
       <li class="nav-item" *ngIf="!isLoggedIn">
         <a class="nav-link" routerLink="/register">Register</a>
+      </li>
+      <li class="nav-item" >
+        <a class="nav-link" routerLink="#">{{  visitingUser.roles?.[0] }}</a>
       </li>
     </ul>
   </div>

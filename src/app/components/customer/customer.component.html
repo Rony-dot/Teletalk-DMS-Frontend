@@ -1,0 +1,36 @@
+<h3 class="my-5 text-center text-primary">Customer Table</h3>
+<div class="row">
+  <div class="col-md-3"></div>
+  <div class="col-md-3">
+    <h4>Filter information - </h4>
+  </div>
+  <div class="col-md-3">
+    <form>
+      <input type="text" name="searchText" placeholder="filter by name"
+             [(ngModel)]="searchText" class="form-control" >
+    </form>
+  </div>
+  <div class="col-md-3"></div>
+</div>
+
+<hr>
+<div class="row">
+  <div class="col"  *ngFor="let customer of customers | filter:searchText">
+    <div class="card" style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title">{{customer?.name}}</h5>
+        <h6 class="card-title">{{customer?.website}}</h6>
+        <p class="card-text">{{customer.credit_limit.toFixed(2)}}</p>
+      </div>
+      <div class="card-footer" >
+        <a class="btn btn-warning btn-sm"  routerLink="/employees/{{ customer.customer_id}}">
+          View
+        </a>
+      </div>
+
+    </div>
+    <br>
+  </div>
+</div>
+
+

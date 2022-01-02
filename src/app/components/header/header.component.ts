@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {UserService} from "../../services/user.service";
+import {UserModel} from "../../models/user-model";
 
 @Component({
   selector: 'app-header',
@@ -9,11 +10,20 @@ import {UserService} from "../../services/user.service";
 export class HeaderComponent implements OnInit {
 
   isLoggedIn: boolean = false;
+  visitingUser = new UserModel();
+
 
   constructor(private userService: UserService) {
+
     this.userService.currentUser$.subscribe((user) => {
       this.isLoggedIn = user !== null
+      if (this.isLoggedIn){
+        this.visitingUser = user;
+      }
     })
+    if(!this.isLoggedIn){
+      this.visitingUser.roles = ['GUEST']
+    }
   }
 
   ngOnInit(): void {

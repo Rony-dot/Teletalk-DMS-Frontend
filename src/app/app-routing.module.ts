@@ -7,6 +7,10 @@ import {LoginComponent} from "./components/login/login.component";
 import {UserService} from "./services/user.service";
 import {DemoComponent} from "./components/demo/demo.component";
 import {CustomerComponent} from "./components/customer/customer.component";
+import {CustomerDetailsComponent} from "./components/customer-details/customer-details.component";
+import {UsersComponent} from "./components/users/users.component";
+import {UserDetailsComponent} from "./components/user-details/user-details.component";
+import {RegisterUserComponent} from "./components/register-user/register-user.component";
 
 const routes: Routes = [
   {path:'login', component: LoginComponent},
@@ -15,6 +19,10 @@ const routes: Routes = [
   {path:'employees', component: EmployeesComponent, canActivate: [UserService]},
   {path:'employees/:id', component: EmployeeDetailsComponent, canActivate: [UserService]},
   {path:'customers', component: CustomerComponent, canActivate: [UserService]},
+  {path:'customers/:id', component: CustomerDetailsComponent, canActivate: [UserService]},
+  {path:'users', component: UsersComponent, canActivate: [UserService]},
+  {path:'users/:id', component: UserDetailsComponent, canActivate: [UserService]},
+  {path:'register', component:RegisterUserComponent},
   {path : '' , redirectTo : '/home', pathMatch : 'full'},
   {path : '**' , redirectTo : '/home', pathMatch : 'full'},
 ];

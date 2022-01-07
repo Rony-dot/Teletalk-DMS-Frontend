@@ -8,6 +8,7 @@ import {ActivatedRouteSnapshot} from "@angular/router";
 import {environment} from "../../environments/environment";
 import {CookieService} from "ngx-cookie-service";
 import {UserLoginModel} from "../models/user-login-model";
+import {Employee} from "../models/employee";
 
 @Injectable({
   providedIn: 'root'
@@ -22,7 +23,7 @@ export class UserService implements CanActivate{
   userDataModel = new UserModel()
   private isAdmin: boolean = false;
 
-
+//
   constructor(private cookieService: CookieService, private router: Router, private httpClient: HttpClient) {
     const jsonString = this.cookieService.get(UserService.USER_INFO);
     if (jsonString === '') {
@@ -85,7 +86,6 @@ export class UserService implements CanActivate{
     userLoginData.username = username
     userLoginData.password = password
 
-
     let observableUser = this.httpClient.post<UserLoginModel>(environment.BASE_URL + '/login', userLoginData,{observe : 'response'});
 
     observableUser.subscribe(data =>{
@@ -98,6 +98,7 @@ export class UserService implements CanActivate{
       return null;
     });
     return observableUser;
+
   }
 
   /*
@@ -144,6 +145,27 @@ export class UserService implements CanActivate{
     return  this.isAdmin;
   }
 
+  fetchAllUsers(): Observable<HttpResponse<UserModel[]>> {
+    // @ts-ignore
+    return this.httpClient.get<UserModel[]>(environment.BASE_URL + '/users/all',{observe : 'response'});
+  }
+
+  getById(id: string): Observable<HttpResponse<UserModel>>{
+    return this.httpClient.get<UserModel>(environment.BASE_URL+'/users/'+id, {observe:'response'});
+  }
+
+  downloadAllUsersPdf(): Observable<HttpResponse<any>> {
+    // @ts-ignore
+    return this.httpClient.get<any>(environment.BASE_URL + '/download/users/pdf',{observe : 'response'});
+  }
+
+  downloadAllUsersExcel(): Observable<HttpResponse<any>> {
+    // @ts-ignore
+    return this.httpClient.get<any>(environment.BASE_URL + '/download/users/excel',{observe : 'response'});
+  }
+
+
+
   // @ts-ignore
   registerUser(userDataModel : userModel): Observable<HttpResponse<UserModel>> {
     // Todo work for registration here
@@ -151,7 +173,8 @@ export class UserService implements CanActivate{
     return this.httpClient.post<UserModel>(environment.BASE_URL + '/register', userDataModel,{observe : 'response'});
 
 
-    /*const url = '/user/create';
+    /*
+    const url = '/user/create';
       return this.httpClient.post<UserModel>(environment.AUTH_SERVER + url, formData)
         .pipe(
           map(userModel => {
@@ -159,6 +182,7 @@ export class UserService implements CanActivate{
             this.userInfoSubject.next(userModel);
             return userModel;
           })
-        );*/
+        );
+        */
   }
 }

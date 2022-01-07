@@ -15,6 +15,10 @@ import { LoginComponent } from './components/login/login.component';
 import {AuthInterceptorService} from "./services/auth-interceptor.service";
 import { DemoComponent } from './components/demo/demo.component';
 import { CustomerComponent } from './components/customer/customer.component';
+import { CustomerDetailsComponent } from './components/customer-details/customer-details.component';
+import { UsersComponent } from './components/users/users.component';
+import { UserDetailsComponent } from './components/user-details/user-details.component';
+import { RegisterUserComponent } from './components/register-user/register-user.component';
 
 
 @NgModule({
@@ -27,6 +31,10 @@ import { CustomerComponent } from './components/customer/customer.component';
     LoginComponent,
     DemoComponent,
     CustomerComponent,
+    CustomerDetailsComponent,
+    UsersComponent,
+    UserDetailsComponent,
+    RegisterUserComponent,
   ],
   imports: [
     BrowserModule,

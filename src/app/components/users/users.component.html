@@ -1,0 +1,39 @@
+<h3 class="my-5 text-center text-primary">Users Table</h3>
+<div class="row">
+  <div class="col-md-3"></div>
+  <div class="col-md-3">
+    <h4>Filter information - </h4>
+  </div>
+  <div class="col-md-3">
+    <form>
+      <input type="text" name="searchText" placeholder="filter by name"
+             [(ngModel)]="searchText" class="form-control" >
+    </form>
+  </div>
+  <div class="col-md-3">
+    <button class="btn btn-primary" (click)="usersPdfDownload()">Download pdf</button>
+<!--    <button class="btn btn-primary" (click)="usersExcelDownload()">Download excel</button>-->
+    <a class="btn btn-primary mr-3" href="http://localhost:8080/download/users/excel">excel</a>
+  </div>
+</div>
+
+<hr>
+<div class="row">
+  <div class="col"  *ngFor="let user of users | filter:searchText">
+    <div class="card" style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title">{{user?.id}}</h5>
+        <h5 class="card-title">{{user?.name}}</h5>
+        <p class="card-text">{{user?.email}}</p>
+      </div>
+      <div class="card-footer" >
+        <a class="btn btn-warning btn-sm"  routerLink="/users/{{ user.id}}">
+          View
+        </a>
+      </div>
+
+    </div>
+    <br>
+  </div>
+</div>
+

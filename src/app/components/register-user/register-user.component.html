@@ -1,0 +1,94 @@
+<div class="container border border-primary my-5 py-3">
+  <div class="row">
+    <div class="col-md-12 text-center">
+      <h2 >Be a proud member from now!</h2> <br>
+    </div>
+
+  </div>
+  <div class="row" >
+    <div class="col-md-8 mx-auto">
+      <form  [formGroup]="registerForm" #UserInformation (ngSubmit)="registerUser(UserInformation)" >
+        <!--    name    -->
+        <div class="mb-3">
+          <label for="name" class="form-label">Full Name</label>
+          <input formControlName="name" type="text" class="form-control" id="name">
+        </div>
+        <!--     email      -->
+        <div class="mb-3">
+          <label for="email" class="form-label">Email address</label>
+          <input formControlName="email"  type="email" class="form-control" id="email">
+        </div>
+        <!--      user name    -->
+        <div class="mb-3">
+          <label for="name" class="form-label">User Name</label>
+          <input formControlName="username" type="text" class="form-control" id="username">
+        </div>
+        <!--     password    -->
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Password</label>
+          <input formControlName="password"  type="password" class="form-control" id="exampleInputPassword1">
+        </div>
+        <!--     phone no    -->
+        <div class="mb-3">
+          <label for="phone" class="form-label">Phone no</label>
+          <input  formControlName="mobile"  type="text" class="form-control" id="phone">
+        </div>
+        <!--      age    -->
+        <div class="mb-3">
+          <label for="age" class="form-label">Age</label>
+          <input  formControlName="age"  type="number" class="form-control" id="age">
+        </div>
+        <!--      Date of birth    -->
+        <div class="mb-3">
+          <label for="dateOfBirth" class="form-label">Date of birth</label>
+          <input  formControlName="dateOfBirth"  type="date" class="form-control" id="dateOfBirth">
+        </div>
+        <!--      country    -->
+        <div class="mb-3">
+          <label for="country" class="form-label">Country</label>
+          <select  formControlName="countryCode"  class="form-select form-control" aria-label="Default select example" id="country">
+            <option selected>select</option>
+            <option value="BD">Bangladesh</option>
+            <option value="IND">India</option>
+            <option value="PAK">Pakistan</option>
+          </select>
+        </div>
+        <!--       gender      -->
+        <div class="mb-3">
+          <label class="form-label">Gender</label> <br>
+          <div class="form-check form-check-inline">
+            <input  formControlName="gender"  class="form-check-input" type="radio" name="gender" id="inlineRadio1" value="Male">
+            <label class="form-check-label" for="inlineRadio1">Male</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input  formControlName="gender"  class="form-check-input" type="radio" name="gender" id="inlineRadio2" value="Female">
+            <label class="form-check-label" for="inlineRadio2">Female</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input  formControlName="gender" class="form-check-input" type="radio" name="gender" id="inlineRadio3" value="Others" >
+            <label class="form-check-label" for="inlineRadio3">Others</label>
+          </div>
+        </div>
+        <!--    Salutation    -->
+        <div class="mb-3">
+          <label class="form-label">Salutation</label> <br>
+          <div class="form-check form-check-inline">
+            <input  formControlName="salutation" class="form-check-input" type="radio" name="salutation" id="inlineRadio4" value="Mr" >
+            <label class="form-check-label" for="inlineRadio4">Mr</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input  formControlName="salutation" class="form-check-input" type="radio" name="salutation" id="inlineRadio5" value="Mrs" >
+            <label class="form-check-label" for="inlineRadio5">Mrs</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input  formControlName="salutation" class="form-check-input" type="radio" name="salutation" id="inlineRadio6" value="Md" >
+            <label class="form-check-label" for="inlineRadio6">Md</label>
+          </div>
+        </div>
+        <!--   register button   -->
+        <button type="submit" class="btn btn-primary">Register</button>
+      </form>
+    </div>
+
+  </div>
+</div>

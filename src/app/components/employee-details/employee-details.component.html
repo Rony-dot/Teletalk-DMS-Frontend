@@ -1,18 +1,37 @@
-<p>employee-details works!</p>
-
+<div class="row">
+  <div class="col-md-12">
+    <h3 class="text-center">Employee details</h3>
+  </div>
+</div>
 <div class="row">
   <div class="col-md-8 mx-auto">
     <form>
-      <div class="mb-3">
-        <label for="fi" class="form-label">Title goes here !</label>
+      <div class="mb-3" >
+        <label for="fi" class="form-label"> First name</label>
         <input [(ngModel)]="employee.first_name" type="text" name="first_name"  class="form-control" id="fi" aria-describedby="emailHelp">
       </div>
       <div class="mb-3">
-        <label for="la" class="form-label">Title goes here !</label>
+        <label for="la" class="form-label">Last name</label>
         <input [(ngModel)]="employee.last_name" type="text" name="last_name"  class="form-control" id="la" aria-describedby="emailHelp">
       </div>
-      <div class="mb-3">
-        <label for="job" class="form-label">Title goes here !</label>
+      <div class="mb-3" *ngIf="accessControl?.emp_email">
+        <label for="email" class="form-label">Email</label>
+        <input [(ngModel)]="employee.email" type="text" name="email"  class="form-control" id="email" aria-describedby="emailHelp">
+      </div>
+      <div class="mb-3" *ngIf="accessControl?.emp_phone">
+        <label for="phone" class="form-label">Phone</label>
+        <input [(ngModel)]="employee.phone" type="text" name="phone"  class="form-control" id="phone" aria-describedby="emailHelp">
+      </div>
+      <div class="mb-3" *ngIf="accessControl?.emp_hire_date">
+        <label for="hire" class="form-label">Hire date</label>
+        <input [(ngModel)]="employee.hire_date" type="text" name="hire_date"  class="form-control" id="hire" aria-describedby="emailHelp">
+      </div>
+      <div class="mb-3" *ngIf="accessControl?.emp_manager_id">
+        <label for="manager" class="form-label">Manager id</label>
+        <input [(ngModel)]="employee.manager_id" type="text" name="manager_id"  class="form-control" id="manager" aria-describedby="emailHelp">
+      </div>
+      <div class="mb-3" *ngIf="accessControl?.emp_job_title">
+        <label for="job" class="form-label">Job title</label>
         <input [(ngModel)]="employee.job_title" type="text" name="job_title"  class="form-control" id="job" aria-describedby="emailHelp">
       </div>
 

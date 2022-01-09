@@ -9,6 +9,7 @@ import {environment} from "../../environments/environment";
 import {CookieService} from "ngx-cookie-service";
 import {UserLoginModel} from "../models/user-login-model";
 import {Employee} from "../models/employee";
+import {AccessControl} from "../models/access-control";
 
 @Injectable({
   providedIn: 'root'
@@ -22,17 +23,25 @@ export class UserService implements CanActivate{
   static USER_INFO = 'USER_INFO';
   userDataModel = new UserModel()
   private isAdmin: boolean = false;
+  private userAccessSubject ?: BehaviorSubject<AccessControl>;
+  public currentAccessList$ : Observable<AccessControl>;
+  static USER_ACCESS_INFO = 'USER_ACCESS_INFO';
+  accessControlList = new AccessControl();
 
 //
   constructor(private cookieService: CookieService, private router: Router, private httpClient: HttpClient) {
-    const jsonString = this.cookieService.get(UserService.USER_INFO);
+    const jsonString= this.cookieService.get(UserService.USER_INFO);
     if (jsonString === '') {
       // @ts-ignore
       this.userInfoSubject = new BehaviorSubject<UserModel>(null);
+      // @ts-ignore
+      this.userAccessSubject = new BehaviorSubject<AccessControl>(null);
     } else {
       this.userInfoSubject = new BehaviorSubject<UserModel>(JSON.parse(this.cookieService.get(UserService.USER_INFO)));
+      this.userAccessSubject = new BehaviorSubject<AccessControl>(JSON.parse(this.cookieService.get(UserService.USER_ACCESS_INFO)));
     }
     this.currentUser$ = this.userInfoSubject.asObservable();
+    this.currentAccessList$ = this.userAccessSubject.asObservable();
   }
 
   /**
@@ -53,6 +62,11 @@ export class UserService implements CanActivate{
       location.href = '/login'
       return false;
     }
+  }
+
+  public get currentUserAccessValue(){
+    // @ts-ignore
+    return this.userAccessSubject.value;
   }
 
   public get currentUserValue() {
@@ -76,6 +90,9 @@ export class UserService implements CanActivate{
   logout() {
     // Delete the cookie
     this.cookieService.delete(UserService.USER_INFO);
+    localStorage.clear()
+    localStorage.removeItem('jwtToken')
+    localStorage.removeItem('isAdmin')
     // @ts-ignore
     this.userInfoSubject.next(null);
   }
@@ -93,6 +110,17 @@ export class UserService implements CanActivate{
       // @ts-ignore
       this.userInfoSubject.next(this.userDataModel);
       this.cookieService.set(UserService.USER_INFO, JSON.stringify(this.userDataModel));
+
+       this.fetchAllAccessList(this.userDataModel.id+"").subscribe(
+         data => {
+           // @ts-ignore
+           this.userAccessSubject.next(this.accessControlList);
+           this.cookieService.set(UserService.USER_ACCESS_INFO, JSON.stringify(this.accessControlList));
+         }, error => {
+           console.log(error);
+         }
+       )
+
       return observableUser;
     }, error => {
       return null;
@@ -145,6 +173,11 @@ export class UserService implements CanActivate{
     return  this.isAdmin;
   }
 
+  fetchAllAccessList(id : string) : Observable<HttpResponse<AccessControl>> {
+
+    return this.httpClient.get<AccessControl>(environment.BASE_URL+"/accessControls/"+id, {observe:'response'});
+  }
+
   fetchAllUsers(): Observable<HttpResponse<UserModel[]>> {
     // @ts-ignore
     return this.httpClient.get<UserModel[]>(environment.BASE_URL + '/users/all',{observe : 'response'});
@@ -184,5 +217,9 @@ export class UserService implements CanActivate{
           })
         );
         */
+  }
+
+  updateAccessControlList(accessControl: AccessControl) {
+    return this.httpClient.put<AccessControl>(environment.BASE_URL+"/accessControls/"+accessControl.id, {observe:'response'});
   }
 }

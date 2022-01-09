@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import {Employee} from "../../models/employee";
 import {ActivatedRoute, Router} from "@angular/router";
 import {EmployeeService} from "../../services/employee.service";
+import {AccessControl} from "../../models/access-control";
+import {UserService} from "../../services/user.service";
+import {UserModel} from "../../models/user-model";
 
 @Component({
   selector: 'app-employee-details',
@@ -11,11 +14,29 @@ import {EmployeeService} from "../../services/employee.service";
 export class EmployeeDetailsComponent implements OnInit {
 
   employee: Employee = new Employee();
-
-  constructor( private employeeService : EmployeeService, private route: ActivatedRoute, private router: Router) { }
+  accessControl : AccessControl = new AccessControl();
+  userId : number | undefined = 0;
+  constructor( private userService : UserService, private employeeService : EmployeeService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
     this.getEmployeeDetails(this.route.snapshot.params.id);
+    this.userService.currentUser$.subscribe(
+      data =>{
+        this.userId = data.id;
+      }, error => {
+        console.log(error)
+      }
+    )
+    this.userService.fetchAllAccessList(this.userId+"").subscribe(
+      data =>{
+        // @ts-ignore
+        this.accessControl = data.body;
+        console.log("main access control list :")
+        console.log(this.accessControl)
+      }, error => {
+        console.log(error)
+      }
+    );
   }
 
   getEmployeeDetails(id: string): Employee {

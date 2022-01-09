@@ -1,17 +1,37 @@
-
+<div class="row">
+<div class="col-md-12">
+  <h3>Profile Information</h3>
+</div>
+</div>
 <div class="row">
   <div class="col-md-8 mx-auto">
     <form>
-      <div class="mb-3">
-        <label for="fi" class="form-label">name goes here !</label>
+      <div class="mb-3" >
+        <label for="fi" class="form-label">Name!</label>
         <input [(ngModel)]="user.name" type="text" name="name"  class="form-control" id="fi" aria-describedby="emailHelp">
       </div>
       <div class="mb-3">
-        <label for="la" class="form-label">email goes here !</label>
+        <label for="la" class="form-label">Email</label>
         <input [(ngModel)]="user.email" type="text" name="email"  class="form-control" id="la" aria-describedby="emailHelp">
       </div>
       <div class="mb-3">
-        <label for="no" class="form-label">roles goes here !</label>
+        <label for="age" class="form-label">Age</label>
+        <input [(ngModel)]="user.age" type="text" name="age"  class="form-control" id="age" aria-describedby="emailHelp">
+      </div>
+      <div class="mb-3">
+        <label for="mobile" class="form-label">Mobile</label>
+        <input [(ngModel)]="user.mobile" type="text" name="mobile"  class="form-control" id="mobile" aria-describedby="emailHelp">
+      </div>
+      <div class="mb-3">
+        <label for="gender" class="form-label">Gender</label>
+        <input [(ngModel)]="user.gender" type="text" name="gender"  class="form-control" id="gender" aria-describedby="emailHelp">
+      </div>
+      <div class="mb-3">
+        <label for="dateOfBirth" class="form-label">Date of birth</label>
+        <input [(ngModel)]="user.dateOfBirth" type="date" name="dateOfBirth"  class="form-control" id="dateOfBirth" aria-describedby="emailHelp">
+      </div>
+      <div class="mb-3" >
+        <label for="no" class="form-label">Roles</label>
         <input [(ngModel)]="user.roles" type="text" name="roles"  class="form-control" id="no" aria-describedby="emailHelp">
       </div>
 

@@ -1,0 +1,50 @@
+<h3>access control list are shown here: </h3>
+
+<form  [formGroup]="accessControlForm" #AccessControls (ngSubmit)="updateAccessControl(AccessControls)" >
+<table class="table table-bordered table-condensed table-hover table-striped text-center">
+  <thead>
+  <tr>
+    <th scope="col">Controls</th>
+    <th scope="col">Edit</th>
+  </tr>
+  </thead>
+  <tbody class="text-left">
+  <tr>
+    <td>Customer address</td>
+    <td><input type="checkbox"  formControlName="cus_address" id="cus_address"  ></td>
+  </tr>
+  <tr>
+    <td>Customer credit limit</td>
+    <td><input type="checkbox" formControlName="cus_credit_limit"></td>
+  </tr>
+  <tr>
+    <td>Customer website</td>
+    <td><input type="checkbox" formControlName="cus_website" ></td>
+  </tr>
+  <tr>
+    <td>Employee email</td>
+    <td><input type="checkbox" formControlName="emp_email" ></td>
+  </tr>
+  <tr>
+    <td>Employee Phone</td>
+    <td><input type="checkbox" formControlName="emp_phone"  ></td>
+  </tr>
+  <tr>
+    <td>Employee Job title</td>
+    <td><input type="checkbox" formControlName="emp_job_title" ></td>
+  </tr>
+  <tr>
+    <td>Employee hire date</td>
+    <td><input type="checkbox" formControlName="emp_hire_date" ></td>
+  </tr>
+  <tr>
+    <td>Employee manager id</td>
+    <td><input type="checkbox" formControlName="emp_manager_id" ></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td><button type="submit" class="btn btn-primary">Update</button></td>
+  </tr>
+  </tbody>
+</table>
+</form>

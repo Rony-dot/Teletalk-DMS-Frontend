@@ -1,21 +1,25 @@
-<!--<p>employee-details works!</p>-->
+<p>Customer details</p>
 
-<!--<div class="row">-->
-<!--  <div class="col-md-8 mx-auto">-->
-<!--    <form>-->
-<!--      <div class="mb-3">-->
-<!--        <label for="fi" class="form-label">Title goes here !</label>-->
-<!--        <input [(ngModel)]="" type="text" name="first_name"  class="form-control" id="fi" aria-describedby="emailHelp">-->
-<!--      </div>-->
-<!--      <div class="mb-3">-->
-<!--        <label for="la" class="form-label">Title goes here !</label>-->
-<!--        <input [(ngModel)]="" type="text" name="last_name"  class="form-control" id="la" aria-describedby="emailHelp">-->
-<!--      </div>-->
-<!--      <div class="mb-3">-->
-<!--        <label for="job" class="form-label">Title goes here !</label>-->
-<!--        <input [(ngModel)]="" type="text" name="job_title"  class="form-control" id="job" aria-describedby="emailHelp">-->
-<!--      </div>-->
+<div class="row">
+  <div class="col-md-8 mx-auto">
+    <form>
+      <div class="mb-3">
+        <label for="fi" class="form-label">Customer name</label>
+        <input [(ngModel)]="customer.name" type="text" name="first_name"  class="form-control" id="fi" aria-describedby="emailHelp">
+      </div>
+      <div class="mb-3"  *ngIf="accessControl.cus_credit_limit">
+        <label for="credit_limit" class="form-label">Credit limit</label>
+        <input [(ngModel)]="customer.credit_limit" type="text" name="credit_limit"  class="form-control" id="credit_limit" aria-describedby="emailHelp">
+      </div>
+      <div class="mb-3" *ngIf="accessControl.cus_website">
+        <label for="website" class="form-label">website</label>
+        <input [(ngModel)]="customer.website" type="text" name="website"  class="form-control" id="website" aria-describedby="emailHelp">
+      </div>
+      <div class="mb-3" *ngIf="accessControl.cus_address">
+        <label for="address" class="form-label">address</label>
+        <input [(ngModel)]="customer.address" type="text" name="address"  class="form-control" id="address" aria-describedby="emailHelp">
+      </div>
 
-<!--    </form>-->
-<!--  </div>-->
-<!--</div>-->
+    </form>
+  </div>
+</div>

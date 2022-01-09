@@ -11,6 +11,7 @@ import {CustomerDetailsComponent} from "./components/customer-details/customer-d
 import {UsersComponent} from "./components/users/users.component";
 import {UserDetailsComponent} from "./components/user-details/user-details.component";
 import {RegisterUserComponent} from "./components/register-user/register-user.component";
+import {AccessControlViewComponent} from "./components/access-control-view/access-control-view.component";
 
 const routes: Routes = [
   {path:'login', component: LoginComponent},
@@ -22,6 +23,8 @@ const routes: Routes = [
   {path:'customers/:id', component: CustomerDetailsComponent, canActivate: [UserService]},
   {path:'users', component: UsersComponent, canActivate: [UserService]},
   {path:'users/:id', component: UserDetailsComponent, canActivate: [UserService]},
+  {path:'profile/:id', component: UserDetailsComponent, canActivate: [UserService]},
+  {path:'accessControl/:id', component: AccessControlViewComponent, canActivate: [UserService]},
   {path:'register', component:RegisterUserComponent},
   {path : '' , redirectTo : '/home', pathMatch : 'full'},
   {path : '**' , redirectTo : '/home', pathMatch : 'full'},

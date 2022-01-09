@@ -7,15 +7,15 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <li class="navy-item" *ngIf="visitingUser.roles?.includes('ADMIN')">
+      <li class="navy-item" *ngIf="visitingUser.roles?.includes('USER')">
 <!--      <li class="navy-item" >-->
         <a class="nav-link active" aria-current="page" routerLink="/employees">Employees</a>
       </li>
-      <li class="navy-item" *ngIf="visitingUser.roles?.includes('ADMIN')">
+      <li class="navy-item" *ngIf="visitingUser.roles?.includes('USER')">
 <!--      <li class="navy-item" >-->
         <a class="nav-link active" aria-current="page" routerLink="/customers">Customers</a>
       </li>
-      <li class="navy-item" *ngIf="visitingUser.roles?.includes('ADMIN')">
+      <li class="navy-item" *ngIf="visitingUser.roles?.includes('USER')">
 <!--      <li class="navy-item" >-->
         <a class="nav-link active" aria-current="page" routerLink="/users">Users</a>
       </li>
@@ -27,6 +27,9 @@
     <ul class="navbar-nav">
       <li class="nav-item" *ngIf="isLoggedIn">
         <a class="nav-link" routerLink="/logout" (click)="logout()">Logout</a>
+      </li>
+      <li class="nav-item" *ngIf="isLoggedIn">
+        <a class="nav-link" routerLink="/users/{{visitingUser.id}}">Profile</a>
       </li>
 
       <li class="nav-item" *ngIf="!isLoggedIn">

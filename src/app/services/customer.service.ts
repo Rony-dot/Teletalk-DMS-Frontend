@@ -17,4 +17,8 @@ export class CustomerService {
     // @ts-ignore
     return this.httpClient.get<Employee[]>(environment.BASE_URL + '/customers',{observe : 'response'});
   }
+
+  getById(id: string): Observable<HttpResponse<Customer>>{
+    return this.httpClient.get<Customer>(environment.BASE_URL+'/customers/'+id, {observe:'response'});
+  }
 }

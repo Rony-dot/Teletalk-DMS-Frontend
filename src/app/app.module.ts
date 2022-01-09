@@ -19,6 +19,7 @@ import { CustomerDetailsComponent } from './components/customer-details/customer
 import { UsersComponent } from './components/users/users.component';
 import { UserDetailsComponent } from './components/user-details/user-details.component';
 import { RegisterUserComponent } from './components/register-user/register-user.component';
+import { AccessControlViewComponent } from './components/access-control-view/access-control-view.component';
 
 
 @NgModule({
@@ -35,6 +36,7 @@ import { RegisterUserComponent } from './components/register-user/register-user.
     UsersComponent,
     UserDetailsComponent,
     RegisterUserComponent,
+    AccessControlViewComponent,
   ],
   imports: [
     BrowserModule,

@@ -12,10 +12,14 @@ import {Router} from "@angular/router";
 export class RegisterUserComponent implements OnInit {
 
   private userDataModel = new UserModel();
+  isAdmin : boolean = false;
 
   constructor(private userService: UserService, private router: Router, private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
+    if(localStorage.getItem("isAdmin")?.includes("admin")){
+      this.isAdmin = true;
+    }
   }
 
   registerForm = new FormGroup({

@@ -1,4 +1,13 @@
 <h3 class="my-5 text-center text-primary">Users Table</h3>
+<div class="row my-3" *ngIf="isAdmin">
+  <div class="col-md-3"></div>
+  <div class="col-md-3"></div>
+  <div class="col-md-3"><h4>Add Users</h4></div>
+  <div class="col-md-3">
+    <a class="btn btn-success" routerLink="/register" >Add</a>
+  </div>
+</div>
+
 <div class="row">
   <div class="col-md-3"></div>
   <div class="col-md-3">
@@ -11,9 +20,11 @@
     </form>
   </div>
   <div class="col-md-3">
-    <button class="btn btn-primary" (click)="usersPdfDownload()">Download pdf</button>
+<!--    <button class="btn btn-primary" (click)="usersPdfDownload()">Download pdf</button>-->
+    <a class="btn btn-primary" href="http://localhost:8080/users/download/pdf">Download Pdf</a>
 <!--    <button class="btn btn-primary" (click)="usersExcelDownload()">Download excel</button>-->
-    <a class="btn btn-primary mr-3" href="http://localhost:8080/download/users/excel">excel</a>
+
+    <a class="btn btn-primary mx-3" href="http://localhost:8080/users/download/excel">Download Excel</a>
   </div>
 </div>
 
@@ -30,7 +41,8 @@
         <a class="btn btn-warning btn-sm"  routerLink="/users/{{ user.id}}">
           View
         </a>
-        <a class="btn btn-warning btn-sm"  routerLink="/accessControl/{{ user.id}}">
+        <!--  TODO ###### need to hide it programmatically ###### -->
+        <a *ngIf="isAdmin" class="btn btn-warning btn-sm"  routerLink="/accessControl/{{ user.id}}">
           Customize View
         </a>
       </div>

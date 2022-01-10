@@ -189,7 +189,7 @@ export class UserService implements CanActivate{
 
   downloadAllUsersPdf(): Observable<HttpResponse<any>> {
     // @ts-ignore
-    return this.httpClient.get<any>(environment.BASE_URL + '/download/users/pdf',{observe : 'response'});
+    return this.httpClient.get<any>(environment.BASE_URL + '/users/download/pdf',{observe : 'response'});
   }
 
   downloadAllUsersExcel(): Observable<HttpResponse<any>> {
@@ -219,7 +219,9 @@ export class UserService implements CanActivate{
         */
   }
 
-  updateAccessControlList(accessControl: AccessControl) {
-    return this.httpClient.put<AccessControl>(environment.BASE_URL+"/accessControls/"+accessControl.id, {observe:'response'});
+  updateAccessControlList(userId : number, accessControl: AccessControl) : Observable<HttpResponse<AccessControl>>  {
+    console.log("data to be updated : ")
+    console.log(accessControl)
+    return this.httpClient.put<AccessControl>(environment.BASE_URL+"/accessControls/"+userId, accessControl, {observe:'response'});
   }
 }

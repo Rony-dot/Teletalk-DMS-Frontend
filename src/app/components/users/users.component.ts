@@ -15,6 +15,7 @@ export class UsersComponent implements OnInit {
   searchText : string = '';
   //@ts-ignore
   users : UserModel[];
+  isAdmin : boolean = false;
 
   constructor(private userService : UserService,private route: ActivatedRoute,
               private router: Router) { }
@@ -29,6 +30,9 @@ export class UsersComponent implements OnInit {
         console.log(error)
       }
     )
+    if(localStorage.getItem("isAdmin")?.includes("admin")){
+      this.isAdmin = true;
+    }
   }
 
   usersPdfDownload(){

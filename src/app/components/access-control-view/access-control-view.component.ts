@@ -14,12 +14,14 @@ export class AccessControlViewComponent implements OnInit {
   accessControl : AccessControl = new AccessControl();
   editAccessControl : AccessControl = new AccessControl();
   public isAdmin : boolean = false;
+  userId : number = 0;
 
   constructor(private userService : UserService, private route: ActivatedRoute, private router: Router, private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
     console.log("user id")
-    console.log(this.route.snapshot.params.id)
+    this.userId = this.route.snapshot.params.id;
+    console.log(this.userId)
     this.userService.fetchAllAccessList(this.route.snapshot.params.id+"").subscribe(
       data =>{
         // @ts-ignore
@@ -76,7 +78,8 @@ export class AccessControlViewComponent implements OnInit {
     console.log("your submitted data : ")
     console.log(this.editAccessControl);
 
-    this.userService.updateAccessControlList(this.editAccessControl).subscribe(
+    this.userService.updateAccessControlList(this.userId, this.editAccessControl)
+      .subscribe(
       data=>{
       console.log(data)
     }, error => {

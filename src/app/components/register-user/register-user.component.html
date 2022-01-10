@@ -86,7 +86,8 @@
           </div>
         </div>
         <!--   register button   -->
-        <button type="submit" class="btn btn-primary">Register</button>
+        <button *ngIf="!isAdmin" type="submit" class="btn btn-primary">Register</button>
+        <button *ngIf="isAdmin" type="submit" class="btn btn-primary">Add User</button>
       </form>
     </div>
 

@@ -13,6 +13,9 @@ export class RegisterUserComponent implements OnInit {
 
   private userDataModel = new UserModel();
   isAdmin : boolean = false;
+  message : string = ''
+  alertType : string = ''
+  display : boolean = false
 
   constructor(private userService: UserService, private router: Router, private formBuilder: FormBuilder) { }
 
@@ -49,8 +52,14 @@ export class RegisterUserComponent implements OnInit {
     this.userDataModel.salutation = (this.salutation?.value);
     this.userService.registerUser(this.userDataModel).subscribe(data=>{
       console.log(data)
+      this.message = "Registration successful!"
+      this.alertType = 'success'
+      this.displayAction()
     }, error => {
       console.log(error)
+      this.message = "Registration failed due to some reason!"
+      this.alertType = 'danger'
+      this.displayAction()
     });
   }
 
@@ -94,5 +103,12 @@ export class RegisterUserComponent implements OnInit {
     return this.registerForm.get('salutation');
   }
 
+  displayAction() {
+    // @ts-ignore
+    setTimeout(() => {
+      this.display = false;
+    }, 5000);
+    this.display = true;
+  }
 
 }

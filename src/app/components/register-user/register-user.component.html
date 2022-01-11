@@ -5,6 +5,9 @@
     </div>
 
   </div>
+
+  <app-bs-alert [alertMessage]="this.message" [alertType]="this.alertType" *ngIf="this.display"></app-bs-alert>
+
   <div class="row" >
     <div class="col-md-8 mx-auto">
       <form  [formGroup]="registerForm" #UserInformation (ngSubmit)="registerUser(UserInformation)" >

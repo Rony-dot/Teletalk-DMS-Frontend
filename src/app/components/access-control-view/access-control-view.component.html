@@ -1,4 +1,10 @@
-<h3>access control list are shown here: </h3>
+<div class="row text-center text-primary text-uppercase">
+  <div class="col-md-12">
+    <h3>access control list are shown here: </h3>
+  </div>
+</div>
+
+<app-bs-alert [alertMessage]="this.message" [alertType]="this.alertType" *ngIf="this.display"></app-bs-alert>
 
 <form  [formGroup]="accessControlForm" #AccessControls (ngSubmit)="updateAccessControl(AccessControls)" >
 <table class="table table-bordered table-condensed table-hover table-striped text-center">

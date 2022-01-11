@@ -15,6 +15,9 @@ export class AccessControlViewComponent implements OnInit {
   editAccessControl : AccessControl = new AccessControl();
   public isAdmin : boolean = false;
   userId : number = 0;
+  message : string = ''
+  alertType : string = ''
+  display : boolean = false
 
   constructor(private userService : UserService, private route: ActivatedRoute, private router: Router, private formBuilder: FormBuilder) { }
 
@@ -81,9 +84,15 @@ export class AccessControlViewComponent implements OnInit {
     this.userService.updateAccessControlList(this.userId, this.editAccessControl)
       .subscribe(
       data=>{
-      console.log(data)
+        console.log(data)
+        this.message = "update success"
+        this.alertType = 'success'
+        this.displayAction()
     }, error => {
-      console.log(error)
+        console.log(error)
+        this.message = "update failed"
+        this.alertType = 'danger'
+        this.displayAction()
     });
 
   }
@@ -114,6 +123,14 @@ export class AccessControlViewComponent implements OnInit {
 
   get cus_credit_limit(){
     return this.accessControlForm.get('cus_credit_limit');
+  }
+
+  displayAction() {
+    // @ts-ignore
+    setTimeout(() => {
+      this.display = false;
+    }, 5000);
+    this.display = true;
   }
 
 }

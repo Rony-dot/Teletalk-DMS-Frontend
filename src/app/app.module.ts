@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule} from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -20,6 +20,7 @@ import { UsersComponent } from './components/users/users.component';
 import { UserDetailsComponent } from './components/user-details/user-details.component';
 import { RegisterUserComponent } from './components/register-user/register-user.component';
 import { AccessControlViewComponent } from './components/access-control-view/access-control-view.component';
+import { BsAlertComponent } from './components/bs-alert/bs-alert.component';
 
 
 @NgModule({
@@ -37,6 +38,7 @@ import { AccessControlViewComponent } from './components/access-control-view/acc
     UserDetailsComponent,
     RegisterUserComponent,
     AccessControlViewComponent,
+    BsAlertComponent,
   ],
   imports: [
     BrowserModule,
@@ -55,7 +57,7 @@ import { AccessControlViewComponent } from './components/access-control-view/acc
       multi : true
     }
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 
 

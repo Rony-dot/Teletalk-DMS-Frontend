@@ -63,8 +63,8 @@ export class LoginComponent implements OnInit {
           },
           error => {
             console.log(error)
-            console.log(error.error.errorItems[0].message)
-            this.message = error.error.errorItems[0].message
+            // console.log(error.error.errorItems[0].message)
+            this.message = "invalid login information"
             this.alertType = 'danger'
             this.displayAction()
           });

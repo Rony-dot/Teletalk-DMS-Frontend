@@ -56,10 +56,10 @@ export class LoginComponent implements OnInit {
             if(this.userDataModel.roles?.includes("ADMIN")){
               localStorage.setItem('isAdmin', 'admin');
             }
-            this.message = "login success"
-            this.alertType = 'success'
-            this.displayAction()
-            window.location.href = '/home'
+            // this.message = "login success"
+            // this.alertType = 'success'
+            // this.displayAction()
+            window.location.href = ''
           },
           error => {
             console.log(error)

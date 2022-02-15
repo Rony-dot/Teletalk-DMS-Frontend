@@ -1,1 +1,201 @@
 /* You can add global styles to this file, and also import other style files */
+/*i.fa.fa-facebook-f.fa-2x {*/
+/*  color: #3b5998;*/
+/*}*/
+/*.fa-2x {*/
+/*  font-size: 2em;*/
+/*}*/
+/*.fa {*/
+/*  display: inline-block;*/
+/*  font: normal normal normal 14px/1 FontAwesome;*/
+/*  font-size: inherit;*/
+/*  text-rendering: auto;*/
+/*  -webkit-font-smoothing: antialiased;*/
+/*  -moz-osx-font-smoothing: grayscale;*/
+/*}*/
+.page_title{
+  background-color: #64c4a8;
+}
+.page_title h3{
+  color: #0b643d;
+  font-weight: 800;
+}
+.footer-menu li a {
+  color: #000;
+  font-size: 16px;
+  text-decoration: none;
+}
+.social-icon-footer li {
+  display: inline-block;
+  border: 1px solid #6ac537;
+  border-radius: 50%;
+  padding: 8px 5px;
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  font-size: 13px;
+}
+ul.social-icon-footer {
+  margin: 40px auto;
+  padding-left: 0px;
+}
+.my-20 {
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+/*--------------index style css--------------------*/
+.icon-box.text-center.hero-bg.rounded.box-shadow {
+  margin-top: 49px;
+  height: 100%;
+  max-height: 220px;
+}
+
+.buynow-btn {
+  padding: 10px 40px;
+  background-color: #6ac537;
+  color: #fff;
+  border: none;
+  width: 100%;
+  display: inline-block;
+  text-align: center;
+  border-radius: 5px;
+}
+
+.close-btn {
+  display: block;
+  background-color: #ffffff;
+  padding: 10px;
+  text-align: center;
+  font-size: 18px;
+  line-height: 22px;
+  border-radius: 5px;
+  font-weight: 500;
+  color: rgba(0, 0, 0, 0.54);
+  border: 1px solid rgba(0, 0, 0, 0.38);
+  margin-top: 10px;
+}
+.popular-package p {
+  font-size: 16px;
+  line-height: 2;
+}
+
+.internet .item h5 {
+  font-size: 25px;
+  font-weight: 600;
+}
+.popular-package p span {
+  font-size: 25px;
+  font-weight: 500;
+}
+
+.ds.page_copyright li {
+  display: inline-block;
+  border-right: 1px solid #6c757d4f;
+  padding: 0px 10px;
+}
+
+.ds.page_copyright {
+  background-color: #ececec;
+  /* border-top: 1px solid #ddd; */
+  color: #000;
+  text-align: center;
+}
+.ds.page_copyright .container {
+  padding-bottom: 15px;
+  padding-top: 15px;
+}
+ul:last-child, ol:last-child, p:last-child {
+  margin-bottom: 0;
+}
+.align-items-center {
+  -ms-flex-align: center!important;
+  align-items: center!important;
+}
+.ds.page_copyright li {
+  display: inline-block;
+  border-right: 1px solid #6c757d4f;
+  padding: 0px 10px;
+}
+
+.ds.page_copyright li a{
+  text-decoration: none;
+  color: #000000;
+}
+/*.page_title.cover-background, .page_title.s-parallax {*/
+/*  background-image: url(/assets/images/breadcrumbs_bg.jpg);*/
+/*  background-size: cover;*/
+/*  color: rgb(255, 255, 255);*/
+/*  position: relative;*/
+/*  min-height: 350px;*/
+/*}*/
+/*.page_title .small-title + .breadcrumb {*/
+/*  font-size: 16px;*/
+/*  font-weight: 300;*/
+/*  letter-spacing: 0;*/
+/*  text-transform: none;*/
+/*}*/
+/*.breadcrumb {*/
+/*  background-color: transparent;*/
+/*  border-radius: 0;*/
+/*  -webkit-box-pack: center;*/
+/*  color: inherit;*/
+/*  font-size: 24px;*/
+/*  font-weight: 300;*/
+/*  -webkit-justify-content: center;*/
+/*  justify-content: center;*/
+/*  letter-spacing: 0;*/
+/*  margin: 0;*/
+/*  padding: 0;*/
+/*  text-transform: capitalize;*/
+/*}*/
+/*----------------------------------*/
+.navbar .navbar-brand {
+  max-width: 6.666667%
+}
+.footer-menu li a:hover{color: #6ac537;
+  transition: all 0.3s ease;
+  margin-left: 3px;
+}
+
+ul.list-styled li a:hover {
+  transition: all 0.3s ease;
+  margin-left: 5px;
+}
+
+.footer-menu li img {
+  height: 50px;
+}
+
+ul, ol {
+  line-height: 1.9;
+  padding-left: 1.15rem;
+}
+
+.widget {
+  position: relative;
+}
+
+.widget > h3, .widget .widget-title {
+  color: #323232;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 0;
+  line-height: 1;
+  margin-bottom: 1.25em;
+}
+
+.widget_archive ul, .widget_categories ul, .widget_nav_menu ul, .widget_meta ul, .widget_pages ul, .widget_recent_comments ul, .widget_recent_entries ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+.footer-menu li {
+  list-style: none;
+}
+
+.footer-menu li a {
+  color: #000;
+  font-size: 16px;
+}

@@ -23,10 +23,10 @@ export class UserService implements CanActivate{
   static USER_INFO = 'USER_INFO';
   userDataModel = new UserModel()
   private isAdmin: boolean = false;
-  private userAccessSubject ?: BehaviorSubject<AccessControl>;
-  public currentAccessList$ : Observable<AccessControl>;
-  static USER_ACCESS_INFO = 'USER_ACCESS_INFO';
-  accessControlList = new AccessControl();
+  // private userAccessSubject ?: BehaviorSubject<AccessControl>;
+  // public currentAccessList$ : Observable<AccessControl>;
+  // static USER_ACCESS_INFO = 'USER_ACCESS_INFO';
+  // accessControlList = new AccessControl();
 
 //
   constructor(private cookieService: CookieService, private router: Router, private httpClient: HttpClient) {
@@ -38,10 +38,10 @@ export class UserService implements CanActivate{
       this.userAccessSubject = new BehaviorSubject<AccessControl>(null);
     } else {
       this.userInfoSubject = new BehaviorSubject<UserModel>(JSON.parse(this.cookieService.get(UserService.USER_INFO)));
-      this.userAccessSubject = new BehaviorSubject<AccessControl>(JSON.parse(this.cookieService.get(UserService.USER_ACCESS_INFO)));
+      // this.userAccessSubject = new BehaviorSubject<AccessControl>(JSON.parse(this.cookieService.get(UserService.USER_ACCESS_INFO)));
     }
     this.currentUser$ = this.userInfoSubject.asObservable();
-    this.currentAccessList$ = this.userAccessSubject.asObservable();
+    // this.currentAccessList$ = this.userAccessSubject.asObservable();
   }
 
   /**
@@ -114,9 +114,10 @@ export class UserService implements CanActivate{
        this.fetchAllAccessList(this.userDataModel.id+"").subscribe(
          data => {
            // @ts-ignore
-           this.userAccessSubject.next(this.accessControlList);
-           this.cookieService.set(UserService.USER_ACCESS_INFO, JSON.stringify(this.accessControlList));
+           // this.userAccessSubject.next(this.accessControlList);
+           // this.cookieService.set(UserService.USER_ACCESS_INFO, JSON.stringify(this.accessControlList));
          }, error => {
+           return  null;
            console.log(error);
          }
        )
